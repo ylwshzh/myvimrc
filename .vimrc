@@ -2,7 +2,7 @@ set nu
 set foldenable
 set foldmethod=manual
 set encoding=utf-8
-"set cursorline
+set cursorline
 set syntax=on
 set confirm
 set autoindent
@@ -32,3 +32,16 @@ function! ClosePair(char)
     endif
 endfunction
 filetype plugin indent on
+
+set nocompatible
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Plugin 'vim-syntastic/syntastic.git'
+Plugin 'scrooloose/nerdtree.git'
+
+" nerdTree
+autocmd vimenter * NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
